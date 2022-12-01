@@ -33,8 +33,11 @@ void display(char tab[LIN][COL], int score, int nTry)
 
 	for (i=0; i<LIN; i++){
 		printf("\t%c | ", (char)(i+65) );
-		for (j=0; j<COL; j++)
-			cout << " " << tab[i][j];
+		for (j=0; j<COL; j++){
+			cout << " " << ((tab[i][j] == 'B') ? "\x1B[32;1m" : "");
+			cout << ((tab[i][j] == 'A') ? "\x1B[36;1m" : "");
+			cout << tab[i][j] << "\033[0m";
+		}
 		cout << "\n";
 	}
 
@@ -51,7 +54,6 @@ void display(char tab[LIN][COL], int score, int nTry)
 
 int menuInicial(void){
 	int opc = 0; //opcao escolhida
-	
 	clear();
 
 	cout << "\n 1. jogar" << endl;
@@ -61,4 +63,11 @@ int menuInicial(void){
 	cout << "\n escolha: ", cin >> opc;
 
 	return opc;
+}
+
+void sobre(void)
+{
+	cout << "\n Autor   Felipe Pegoraro" << endl;
+	cout << " Data    01 dec 22" << endl;
+	cout << " Github  felipepegoraro/battleship\n" << endl;
 }

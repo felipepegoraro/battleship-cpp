@@ -5,26 +5,14 @@
 
 using namespace std;
 
+/*
+ * Felipe Pegoraro, 01/12/22
+ * joguinho simples feito para 
+ * testar CPP, já que eu vinha do C.
+*/
+
 int main(void)
 {
-	int opc = 0;
-
-	srand((unsigned)time(NULL));
-
-	while (opc < 1 || opc > 3){
-		opc = menuInicial();
-		switch (opc) {
-			case 1:
-				jogo(); 
-				break;
-			case 2:
-				cout << "sobre";
-				break;
-			case 3: 
-				cout << "saindo..." << endl;
-				return(EXIT_SUCCESS);
-		}
-	}
-
+	gameLoop();
 	return(EXIT_SUCCESS);
 }

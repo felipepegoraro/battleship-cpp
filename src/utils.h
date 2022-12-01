@@ -13,5 +13,6 @@ void clear(void);
 void iniciaTabuleiro(char[LIN][COL], unsigned char);
 void display(char[LIN][COL], int, int);
 int menuInicial(void);
+void sobre(void);
 
 #endif /*UTILS_H */

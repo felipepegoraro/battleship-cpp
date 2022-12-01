@@ -7,6 +7,3 @@ all: $(TARGET)
 
 $(TARGET): $(TARGET).cpp
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET).out $(TARGET).cpp
-
-clean: 
-	rm $(TARGET)

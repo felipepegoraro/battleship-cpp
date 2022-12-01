@@ -12,6 +12,29 @@ using namespace std;
 static void testaInput(int);
 static void posicionaBarcos(char[LIN][COL]);
 static void testaPontos(char, int*, int*);
+void jogo(void);
+
+void gameLoop(void)
+{
+	int opc = 0;
+
+	srand((unsigned)time(NULL));
+
+	while (opc < 1 || opc > 3){
+		opc = menuInicial();
+		switch (opc) {
+			case 1:
+				jogo(); 
+				break;
+			case 2:
+				sobre();
+				break;
+			case 3: 
+				cout << "\n Saindo...\n" << endl;
+				exit(EXIT_SUCCESS);
+		}
+	}
+}
 
 void jogo(void)
 {
@@ -26,7 +49,7 @@ void jogo(void)
 		clear();
 
 		display(mask, score, nTry);
-		display(tab, 0, 0); // gabarito...
+		/* display(tab, 0, 0); // gabarito... */
 
 		cout << " > linha...: ", cin >> letter;
 		linJ = toupper(int(letter)) - 65;
@@ -41,23 +64,29 @@ void jogo(void)
 
 
 		char rpl;
-		if (score >= 10)
+		if (score >= 100)
 		{
 			cout << "\n\n\t    VOCÊ VENCEU !" << endl;
 			cin.ignore();
 			cout << " digite qualquer tecla para sair... ", cin.get(rpl);
-			menuInicial();
+			status = STOPPED;
 		}
 
-		if (nTry == 4)
+		if (nTry == 0)
 		{
 			cout << "\n\n\t    VOCÊ PERDEU !" << endl;
 			cin.ignore();
 			cout << " digite qualquer tecla para sair... ", cin.get(rpl);
+
+			clear();
+			cout << " resposta: ";
+			display(tab, score, nTry);
+
+			cin.ignore();
 			status = STOPPED;
-			menuInicial();
 		}
 	}
+	gameLoop();
 }
 
 void testaInput(int n)
@@ -88,6 +117,7 @@ static void testaPontos(char upChar, int *score, int *nTry)
 	switch(upChar){
 		case 'B':
 			(*score) += 10;
+			 (*nTry) += 2;
 			break;
 		default:
 			(*nTry)--;
