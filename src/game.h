@@ -3,6 +3,6 @@
 
 #include "./utils.h"
 
-void jogo();
+void jogo(void);
 
 #endif // !GAME_H

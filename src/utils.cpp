@@ -1,5 +1,6 @@
 #include "./utils.h"
 #include <iostream>
+#include <ctype.h>
 
 using namespace std;
 
@@ -22,22 +23,36 @@ void iniciaTabuleiro(char tab[LIN][COL], unsigned char code)
 	}
 }
 
-void display(char tab[LIN][COL])
+void display(char tab[LIN][COL], int score, int nTry)
 {
 	int i, j;
+
+	cout << "\n\t    Batalha Naval!\n" << endl;
+	printf("\tscore[%d]\t", score);
+	cout << "chances[" << nTry << "]\n" << endl;
+
 	for (i=0; i<LIN; i++){
-		for (j=0; j<COL; j++){
+		printf("\t%c | ", (char)(i+65) );
+		for (j=0; j<COL; j++)
 			cout << " " << tab[i][j];
-		}
 		cout << "\n";
 	}
+
+	cout << "\t    ";
+	for (i=0; i<COL; i++)
+		cout << " -";
+
+	cout << "\n\t    ";
+	for (i=0; i<COL; i++)
+		cout << " " << i;
+
+	cout << "\n";
 }
 
 int menuInicial(void){
 	int opc = 0; //opcao escolhida
 	
 	clear();
-	cout << "\t Batalha Naval!" << endl;
 
 	cout << "\n 1. jogar" << endl;
 	cout << " 2. sobre" << endl;
