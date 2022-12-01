@@ -1,0 +1,12 @@
+TARGET := battleship
+CC := g++
+SRC := ./src/utils.cpp
+CFLAGS := -Wall -Werror -Wextra -O2
+
+all: $(TARGET)
+
+$(TARGET): $(TARGET).cpp
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(TARGET).cpp
+
+clean: 
+	rm $(TARGET)
