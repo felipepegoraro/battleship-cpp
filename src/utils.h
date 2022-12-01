@@ -6,6 +6,12 @@
 #define clean "cls"
 #endif // !__WIN32
 
-void clear();
+#define LIN 10
+#define COL 10
+
+void clear(void);
+void iniciaTabuleiro(char[LIN][COL], unsigned char);
+void display(char[LIN][COL]);
+int menuInicial(void);
 
 #endif /*UTILS_H */
