@@ -58,7 +58,7 @@ int menuInicial(void){
 
 	cout << "\n 1. jogar" << endl;
 	cout << " 2. sobre" << endl;
-	cout << " 3.  sair" << endl;
+	cout << " 3. sair" << endl;
 
 	cout << "\n escolha: ", cin >> opc;
 
@@ -68,6 +68,6 @@ int menuInicial(void){
 void sobre(void)
 {
 	cout << "\n Autor   Felipe Pegoraro" << endl;
-	cout << " Data    01 dec 22" << endl;
+	cout << " Data    01 12 22" << endl;
 	cout << " Github  felipepegoraro/battleship\n" << endl;
 }
